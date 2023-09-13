@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                echo "Buildings ..."
+                echo "Buildings  ..."
             }
             post {
                 always {
