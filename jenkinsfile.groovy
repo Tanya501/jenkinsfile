@@ -29,10 +29,13 @@ pipeline {
             }
         }
     }
-    always {
-        emailext: attachLog: true,
-           to: "netanya.antony@gmail.com",
-        subject: "Build Status Email",
-        body: "Build log attached!"
+    post{
+       always {
+            emailext attachLog: true,
+               to: "netanya.antony@gmail.com",
+            subject: "Build Status Email",
+            body: "Build log attached!"
+        } 
     }
+
 }
