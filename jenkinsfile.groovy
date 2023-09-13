@@ -7,7 +7,6 @@ pipeline {
             }
             post {
                 always {
-                    emailext attachLog: true,
                     mail to: "netanya.antony@gmail.com",
                     subject: "Build Status Email",
                     body: "Build log attached!"
