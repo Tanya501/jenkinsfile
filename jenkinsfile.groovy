@@ -27,6 +27,12 @@ pipeline {
             steps {
                 echo "Completed."
             }
+        post{
+            always {
+               emailext attachLog: true,
+               to: "netanya.antony@gmail.com",
+               subject: "Completed Status Email",
+               body: "Completed log attached!"
         }
     }
 }
