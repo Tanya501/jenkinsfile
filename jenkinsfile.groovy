@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                echo "Buildings  ..."
+                echo "Building ..."
             }
             post {
                 always {
@@ -22,21 +22,18 @@ pipeline {
             steps {
                 echo "Deploying ..."
             }
-    
         }
         stage ("Complete"){
             steps {
                 echo "Completed."
             }
         }
-    }
-    post{
-       always {
-            emailext attachLog: true,
+        post{
+            always {
+               emailext attachLog: true,
                to: "netanya.antony@gmail.com",
-            subject: "Completed Status Email",
-            body: "Completed log attached!"
+               subject: "Completed Status Email",
+               body: "Completed log attached!"
         } 
     }
-
 }
