@@ -17,10 +17,26 @@ pipeline {
             steps {
                 echo "Testing ..."
             }
+         }
+            post {
+                always {
+                    mail to: "netanya.antony@gmail.com",
+                    subject: "Test Status Email",
+                    body: "Test log attached!"
+                }
+            }
         }
         stage ("Deploy"){
             steps {
                 echo "Deploying ..."
+            }
+         }
+            post {
+                always {
+                    mail to: "netanya.antony@gmail.com",
+                    subject: "Deploy Status Email",
+                    body: "Deploy log attached!"
+                }
             }
         }
         stage ("Complete"){
@@ -33,8 +49,8 @@ pipeline {
        always {
             emailext attachLog: true,
                to: "netanya.antony@gmail.com",
-            subject: "Build Status Email",
-            body: "Build log attached!"
+            subject: "Completed Status Email",
+            body: "Completed log attached!"
         } 
     }
 
